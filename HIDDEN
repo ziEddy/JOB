@@ -1,0 +1,19 @@
+1. 해당하는 히든 키를 사용 할 곳에 추가
+    - ex) 변수 생성
+        -> fjob
+             private void FJob_KeyDown(object sender, KeyEventArgs e)
+            {
+                if (e.Alt && e.Control && e.KeyCode == Keys.P)
+                    ucDeviceCtrl.OpenSystemParam();
+            }
+
+    - 이벤트 생성
+        -> fjob.designer
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FJob_KeyDown);
+    
+    - FJob_KeyDown 을 실행시 숨길 변수 선언
+        -> ucDevice
+            public void OpenSystemParam()
+           {
+               groupBox3.Visible = !groupBox3.Visible;
+           }
