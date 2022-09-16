@@ -1,1 +1,20 @@
+FOV PARAM 값 넣어 변경 ( OGP 측정 값에 맞추기 위한 )
+
+1. PROC.DAT         ) 해당 PARAM 명칭 추가
+
+2. ucDevice[디자인] ) 만들려고 하는 폼 제작
+    - 값 변경되는 부분은 (NAME) 해당 PARAM 명칭으로 변경
+
+3. ucDevice         ) 해당 PARAM.VALUE 값 
+    - ShowParam 변수에 추가
+        FOV_X.Value                 = (decimal)cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"];
+        FOV_Y.Value                 = (decimal)cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"];
+    - ReadParam 변수에 추가
+        cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"]             = (double)FOV_X.Value;
+        cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"]             = (double)FOV_Y.Value;
+
+4. cRun             ) 사용되는 함수에서 선언하고 사용 or 변수 만들어서 사용
+    - double Param_x = cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"];
+      double Param_y = cJob.Runs.HProcs[cSystem.C_PROC_DEVICE].ProcDouble["명칭"];
+
 
