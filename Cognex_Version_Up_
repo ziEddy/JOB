@@ -1,0 +1,9 @@
+cognex version upgrade 9.2 -> 9.5
+      - 기존 소스 ( Module_Router )
+            CogStringCollection LicensedFeatures;
+            LicensedFeatures = CogMisc.GetLicensedFeatures(false);
+      - 바뀐 소스
+            CogStringCollection LicensedFeatures = CogLicense.GetLicensedFeatures(false, false);
+  
+  
+  *  참조된 dll 파일 업데이트 필요  *
